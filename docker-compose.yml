@@ -1,6 +1,6 @@
 version: '3'
 services:
-  nginx-server:
+  nginx_server:
     build: 
       context: ./nginx_server
       dockerfile: Dockerfile
@@ -12,7 +12,7 @@ services:
       - "80:80"
     networks:
       - lab-net
-  apache-server:
+  apache_server:
     build: 
       context: ./apache_server
       dockerfile: Dockerfile
@@ -24,8 +24,9 @@ services:
       - "8080:80"
     networks:
       - lab-net
-  compose-server:
+  compose_server:
     image: docker/compose:latest
+    container_name: compose_server
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     networks:
