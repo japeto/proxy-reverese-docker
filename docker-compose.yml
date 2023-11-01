@@ -25,7 +25,9 @@ services:
     networks:
       - lab-net
   compose_server:
-    image: docker/compose:latest
+    image: httpd:latest
+    ports:
+      - "9090:80"
     container_name: compose_server
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
